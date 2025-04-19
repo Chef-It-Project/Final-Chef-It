@@ -110,7 +110,9 @@
           style="width: 160px; height: auto"
         />
       </div>
-      <h2 class="signup-title">Create Account <span class="emoji">👨‍🍳</span></h2>
+      <h2 class="signup-title">
+        Join Chef It <span class="emoji">🥗</span>
+      </h2>
       <form action="{{ url_for('auth_views.signup_action') }}" method="POST">
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
@@ -121,46 +123,56 @@
         </div>
         {% endif %}
         {% endwith %}
+
         <div class="form-group">
-          <label for="username">Username</label>
+          <label for="username"><i class="fas fa-user"></i> Username</label>
           <input
             type="text"
+            id="username-input"
             name="username"
             placeholder="Choose a username"
             required
             value="{{ request.form.username if request.form.username }}"
           />
         </div>
+
         <div class="form-group">
-          <label for="email">Email</label>
+          <label for="email"><i class="fas fa-envelope"></i> Email</label>
           <input
             type="email"
+            id="email-input"
             name="email"
             placeholder="Enter your email"
             required
             value="{{ request.form.email if request.form.email }}"
           />
         </div>
+
         <div class="form-group">
-          <label for="password">Password</label>
+          <label for="password"><i class="fas fa-lock"></i> Password</label>
           <input
             type="password"
+            id="password-input"
             name="password"
             placeholder="Create a password"
             required
           />
         </div>
+
         <div class="form-group">
-          <label for="confirm_password">Confirm Password</label>
+          <label for="confirm_password"><i class="fas fa-lock"></i> Confirm Password</label>
           <input
             type="password"
+            id="confirm-password-input"
             name="confirm_password"
             placeholder="Confirm your password"
             required
           />
         </div>
-        <button type="submit">Sign Up</button>
+
+        <button type="submit"><i class="fas fa-user-plus"></i> Sign Up</button>
       </form>
+
       <p class="switch-link">
         Already have an account?
         <a href="{{ url_for('auth_views.login_action') }}">Login</a>
